@@ -1,13 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native';
+import ScreenA from './screens/ScreenA';
+import ScreenB from './screens/ScreenB';
+import ScreenC from './screens/ScreenC';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView>
-        <StatusBar style="dark"/>
-        <Text>This is a text in safe area</Text>
+      <SafeAreaView style={styles.container}>
+        <StatusBar style="auto"/>
+        <ScreenA/>
+        <ScreenB/>
+        <ScreenC/>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -16,8 +21,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
