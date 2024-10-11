@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ScreenA from '../../../screens/ScreenA';
 import ScreenB from '../../../screens/ScreenB';
 import ScreenC from '../../../screens/ScreenC';
-import StepStack from '../../../components/StepStack';
+import StepStack from './components/StepStack';
 
 const Stack = createNativeStackNavigator();
 
