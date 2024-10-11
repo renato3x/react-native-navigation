@@ -257,3 +257,86 @@ Por padrão, a propriedade `headerShown` de `screenOptions` vem como `true`, mas
   src=".github/images/native_stack_navigation_example_header_shown_false.png"
   height="500"
 />
+
+## Bottom Tabs Navigation
+
+Bottom tabs navigation faz uma navegação que utiliza botões que, ao clicar neles, você altera de uma tela para outra, assim como existe em vários aplicativos, como WhatsApp, Instagram, Facebook, Twitter, Amazon, dentre outros. Os princípios dele são bem parecidos com a navegação em Stack vista anteriormente. 
+
+Segue um exemplo básico da sua utilização
+
+```Javascript
+import { createBottomTabsNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Tab = createBottomTabsNavigator()
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarLabelStyle: {
+            fontSize: 20,
+          }
+        }}
+      >
+        <Tab.Screen
+          name="home"
+          component={Home}
+          options={{
+            title: 'Home'
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  )
+}
+```
+
+A estrutura também é bastante semelhante ao Stack Navigation e possui as mesmas propriedades e algumas específicas do Bottom Tabs Navigation. Uma delas, como mostrada no exemplo acima, é a propriedade `tabBarLabelStyle`, que fica dentro de `screenOptions` do componente `Navigator`. Ele permite aplicar estilizações nos labels de cada tab da sua navegação de forma global. Ou seja, essa estilização vai ser global para todas as tabs. Porém, é possível definir estilizações específicas para cada tab. basta colocar a opção `tabBarLabelStyle` dentro da propriedade `options` do componente `Screen` e você poderá definir uma estilização para o Label.
+
+```Javascript
+import { createBottomTabsNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Tab = createBottomTabsNavigator()
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarLabelStyle: {
+            fontSize: 20,
+          }
+        }}
+      >
+        {/* o tabBarLabelStyle de Screen irá sobrescrever o definido no Navigator */}
+        <Tab.Screen
+          name="home"
+          component={Home}
+          options={{
+            title: 'Home',
+            tabBarLabelStyle: {
+              fontSize: 30,
+              color: 'red',
+            },
+              
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  )
+}
+```
+
+Vale ressaltar que é possível estilizar todo Bottom Tab Navigation. A estilização do label é apenas uma explicação e você pode alterar muito mais coisas. E também as props `navigation` e `route` também estão disponíveis nesse modo de navegação também.
+
+Além disso, é possível definir ícones para cada tab. Por padrão, ficará sem nenhum ícone, mas basta definir a propriedade `tabBarIcon` dentro de `options` no componente `Screen` que você poderá definir um ícone
+
+<img
+  src=".github/images/bottom_tabs_navigation.png"
+  height="500"
+/>
