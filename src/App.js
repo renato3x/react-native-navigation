@@ -11,8 +11,8 @@ export default function App() {
         <StatusBar style="auto"/>
         <NavigationContainer>
           {/* <StackNavigation/> */}
-          {/* <TabsNavigation/> */}
-          <DrawerNavigation/>
+          <TabsNavigation/>
+          {/* <DrawerNavigation/> */}
         </NavigationContainer>
       </SafeAreaView>
     </SafeAreaProvider>
