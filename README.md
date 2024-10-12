@@ -340,3 +340,41 @@ Além disso, é possível definir ícones para cada tab. Por padrão, ficará se
   src=".github/images/bottom_tabs_navigation.png"
   height="500"
 />
+
+## Drawer Navigation
+
+
+O Drawer Navigation é um tipo de navegação lateral comum em aplicativos móveis, especialmente no React Native, que oferece uma interface deslizante que permite aos usuários acessar diferentes telas ou seções do aplicativo. Quando o usuário desliza a tela a partir da borda esquerda (ou clica em um ícone de menu), um painel (drawer) aparece, exibindo opções de navegação como links ou botões.
+
+Exemplo de utilização:
+
+```Javascript
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Drawer = createDrawerNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator
+        initialRouteName="home"
+      >
+        <Drawer.Screen name="home" component={Home}/>
+      </Drawer.Navigator>
+    </NavigationContainer>
+  )
+}
+```
+
+<img
+  src=".github/images/drawer_navigation_close.png"
+  height="500"
+/>
+
+<img
+  src=".github/images/drawer_navigation_open.png"
+  height="500"
+/>
+
+Você pode navegar entre as telas com esse botão que fica definido no cabeçalho por padrão. Ao clicar fora do drawer, quando aberto, ele se fechará. Mas, você também pode criar sua própria navegação com o drawer utilizando funções novas que a propriedade `navigation` ou o hook `useNavigator` disponibiliza, que são as funções `openDrawer()`, `closeDrawer()` ou `toggleDrawer()`. Elas servem para abrir, fechar ou fazer os dois dependendo do caso, respectivamente. Tirando essa opção, o resto é bastante parecido, desde a estruturação, até a utilização.
